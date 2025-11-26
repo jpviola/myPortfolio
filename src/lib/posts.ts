@@ -15,6 +15,7 @@ import { mdxComponents } from '@/components/mdx/mdx-components';
 import { FALLBACK_LOCALE, Locale, locales } from '@/lib/i18n/config';
 
 const BLOG_DIR = path.join(process.cwd(), 'content', 'blog');
+const DEFAULT_HERO_IMAGE = '/blog/placeholder.svg';
 
 const frontmatterSchema = z.object({
   title: z.string().min(3),
@@ -100,6 +101,13 @@ function resolveEntry(locale: Locale, entries: BlogFile[]) {
   return { entry: first, isFallback: true, languageUsed: first.language };
 }
 
+function resolveHero(entry: BlogFile) {
+  return {
+    heroImage: entry.heroImage ?? DEFAULT_HERO_IMAGE,
+    heroImageAlt: entry.heroImageAlt ?? entry.title,
+  };
+}
+
 export interface BlogPostSummary {
   slug: string;
   title: string;
@@ -109,6 +117,8 @@ export interface BlogPostSummary {
   availableLanguages: Locale[];
   activeLanguage: Locale;
   isFallback: boolean;
+  heroImage: string;
+  heroImageAlt: string;
 }
 
 export interface BlogPostPayload {
@@ -123,6 +133,7 @@ export const getBlogSummaries = cache(async (locale: Locale): Promise<BlogPostSu
   return groups
     .map((group) => {
       const { entry, isFallback, languageUsed } = resolveEntry(locale, group.entries);
+      const hero = resolveHero(entry);
       return {
         slug: group.slug,
         title: entry.title,
@@ -132,6 +143,8 @@ export const getBlogSummaries = cache(async (locale: Locale): Promise<BlogPostSu
         availableLanguages: group.entries.map((item) => item.language),
         activeLanguage: languageUsed,
         isFallback,
+        heroImage: hero.heroImage,
+        heroImageAlt: hero.heroImageAlt,
       } satisfies BlogPostSummary;
     })
     .sort((a, b) => new Date(b.publishedAt).getTime() - new Date(a.publishedAt).getTime());
@@ -144,6 +157,7 @@ export async function getPostBySlug(slug: string, locale: Locale) {
     return null;
   }
   const { entry, isFallback, languageUsed } = resolveEntry(locale, group.entries);
+  const hero = resolveHero(entry);
   const { content } = await compileMDX({
     source: entry.body,
     options: {
@@ -165,6 +179,8 @@ export async function getPostBySlug(slug: string, locale: Locale) {
       availableLanguages: group.entries.map((item) => item.language),
       activeLanguage: languageUsed,
       isFallback,
+      heroImage: hero.heroImage,
+      heroImageAlt: hero.heroImageAlt,
     },
     content,
   } as BlogPostPayload;

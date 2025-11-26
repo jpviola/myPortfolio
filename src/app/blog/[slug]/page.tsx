@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { FootnoteProvider } from '@/components/footnotes/footnote-provider';
 import { formatDate } from '@/lib/formatters';
@@ -30,6 +31,17 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
           <p className="text-xs uppercase tracking-[0.3em] text-accent">{dictionary.blog.title}</p>
           <h1 className="text-4xl font-semibold text-foreground">{summary.title}</h1>
           <p className="text-base text-foreground/70">{summary.description}</p>
+        </div>
+        <div className="relative overflow-hidden rounded-3xl border border-border/60 bg-white/80 shadow-sm dark:bg-muted/60">
+          <Image
+            src={summary.heroImage}
+            alt={summary.heroImageAlt}
+            width={1200}
+            height={630}
+            className="h-auto w-full object-cover"
+            sizes="(min-width: 1024px) 768px, 100vw"
+            priority
+          />
         </div>
         <dl className="grid gap-4 rounded-3xl border border-border/60 bg-muted/40 p-6 text-sm text-foreground/80 sm:grid-cols-2">
           <div>
