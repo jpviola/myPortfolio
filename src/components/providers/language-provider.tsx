@@ -21,19 +21,15 @@ export function LanguageProvider({ children, initialLocale }: { children: ReactN
   const router = useRouter();
 
   useEffect(() => {
-    setLocaleState(initialLocale);
     if (typeof document !== 'undefined') {
-      document.documentElement.lang = initialLocale;
+      document.documentElement.lang = locale;
     }
-  }, [initialLocale]);
+  }, [locale]);
 
   const changeLocale = useCallback((nextLocale: Locale) => {
     setLocaleState(nextLocale);
     if (i18n?.changeLanguage) {
       i18n.changeLanguage(nextLocale);
-    }
-    if (typeof document !== 'undefined') {
-      document.documentElement.lang = nextLocale;
     }
     startTransition(async () => {
       await setLanguagePreference(nextLocale);

@@ -22,8 +22,12 @@ export function SiteHeader() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   useEffect(() => {
-    setIsMenuOpen(false);
-  }, [pathname]);
+    if (!isMenuOpen || typeof window === 'undefined') {
+      return;
+    }
+    const timeout = window.setTimeout(() => setIsMenuOpen(false), 0);
+    return () => window.clearTimeout(timeout);
+  }, [pathname, isMenuOpen]);
 
   useEffect(() => {
     if (typeof document === 'undefined') return;

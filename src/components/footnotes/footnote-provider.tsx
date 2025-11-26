@@ -1,5 +1,6 @@
+'use client';
+
 import { ReactNode, createContext, useContext } from 'react';
-import { randomUUID } from 'node:crypto';
 
 interface FootnoteRegistration {
   id: string;
@@ -10,39 +11,34 @@ interface FootnoteEntry extends FootnoteRegistration {
   index: number;
 }
 
-const FootnoteContext = createContext<string | null>(null);
-const footnoteStores = new Map<string, FootnoteEntry[]>();
-
-function registerFootnote(storeId: string, entry: FootnoteRegistration) {
-  const store = footnoteStores.get(storeId);
-  if (!store) {
-    throw new Error('Footnote store missing. Wrap content with <FootnoteProvider>.');
-  }
-  const existing = store.find((item) => item.id === entry.id);
-  if (existing) {
-    return existing.index;
-  }
-  const nextIndex = store.length + 1;
-  store.push({ ...entry, index: nextIndex });
-  return nextIndex;
+interface FootnoteContextValue {
+  register: (entry: FootnoteRegistration) => number;
 }
 
+const FootnoteContext = createContext<FootnoteContextValue | null>(null);
+
 export function FootnoteProvider({ children, heading }: { children: ReactNode; heading: string; }) {
-  const storeId = randomUUID();
-  footnoteStores.set(storeId, []);
+  const notes: FootnoteEntry[] = [];
+
+  const register = (entry: FootnoteRegistration) => {
+    const existing = notes.find((note) => note.id === entry.id);
+    if (existing) {
+      return existing.index;
+    }
+    const index = notes.length + 1;
+    notes.push({ ...entry, index });
+    return index;
+  };
 
   return (
-    <>
-      <FootnoteContext.Provider value={storeId}>{children}</FootnoteContext.Provider>
-      <FootnoteList storeId={storeId} heading={heading} />
-    </>
+    <FootnoteContext.Provider value={{ register }}>
+      {children}
+      <FootnoteList heading={heading} notes={notes} />
+    </FootnoteContext.Provider>
   );
 }
 
-function FootnoteList({ storeId, heading }: { storeId: string; heading: string; }) {
-  const notes = footnoteStores.get(storeId) ?? [];
-  footnoteStores.delete(storeId);
-
+function FootnoteList({ heading, notes }: { heading: string; notes: FootnoteEntry[]; }) {
   if (notes.length === 0) {
     return null;
   }
@@ -67,15 +63,15 @@ function FootnoteList({ storeId, heading }: { storeId: string; heading: string; 
   );
 }
 
-export function useFootnoteStore() {
-  const storeId = useContext(FootnoteContext);
-  if (!storeId) {
+function useFootnoteContext() {
+  const context = useContext(FootnoteContext);
+  if (!context) {
     throw new Error('Footnote components must be wrapped by <FootnoteProvider>.');
   }
-  return storeId;
+  return context;
 }
 
 export function useRegisterFootnote(entry: FootnoteRegistration) {
-  const storeId = useFootnoteStore();
-  return registerFootnote(storeId, entry);
+  const { register } = useFootnoteContext();
+  return register(entry);
 }
