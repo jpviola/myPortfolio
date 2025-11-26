@@ -15,9 +15,31 @@ A bilingual Next.js starter that ships a lightweight MDX blog, persistent langua
 ```
 content/blog            // MDX posts with bilingual metadata
 src/app                // App Router pages, API route, and layout
-src/components         // UI primitives, layout, blog cards, contact form
+src/components         // UI primitives, layout, blog cards, portfolio, contact form
+src/data               // Typed data sources such as the portfolio gallery
 src/lib                // i18n dictionary, locale/theme helpers, MDX loader, validation
 ```
+
+## Portfolio gallery
+
+`src/components/portfolio/portfolio-gallery.tsx` renders the interactive gallery on the home page. It is powered by the typed data source in `src/data/portfolio.ts`, which exports:
+
+- `portfolioCategories` – localized labels for each filterable category.
+- `PortfolioProject` – strongly typed entries that include bilingual titles, summaries, descriptions, media, stack tags, metrics, external links, and optional footnotes.
+
+### Adding or editing projects
+
+1. Open `src/data/portfolio.ts` and duplicate one of the existing entries in `portfolioProjects`.
+2. Provide localized strings for `title`, `summary`, `description`, highlight labels, and metric values.
+3. Assign one or more `categories` (add to `portfolioCategories` if a new one is needed).
+4. Supply any supporting `links`, `stack` tags, and `metrics` to surface inside the modal.
+5. Inline notes can register localized `footnotes`. Reference them by setting `footnoteId` inside a highlight item—the modal will render the inline marker and automatically append a numbered list at the bottom.
+
+Because the gallery consumes the shared `LanguageProvider`, switching locales immediately swaps every piece of copy, the filters, and the modal content.
+
+### Using footnotes outside MDX
+
+The reusable `FootnoteProvider` and `Footnote` components live under `src/components/footnotes`. Wrap any section or modal with the provider, render your content, and drop `<Footnote id="context">Copy</Footnote>` wherever you need inline context. The provider collects every registration, renders a localized heading (pass `dictionary.footnotes.heading`), and inherits the site’s light/dark theme styles.
 
 ### Authoring posts
 

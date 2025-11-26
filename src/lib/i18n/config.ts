@@ -56,6 +56,23 @@ type DictionaryShape = {
     availableLanguages: string;
     translationBadge: string;
   };
+  portfolio: {
+    label: string;
+    title: string;
+    description: string;
+    filtersLabel: string;
+    allLabel: string;
+    viewProject: string;
+    openProject: (title: string) => string;
+    modal: {
+      close: string;
+      overview: string;
+      highlights: string;
+      metrics: string;
+      stack: string;
+      links: string;
+    };
+  };
   footnotes: {
     heading: string;
   };
@@ -97,6 +114,24 @@ export const dictionaries: Record<Locale, DictionaryShape> = {
       updated: "Updated",
       availableLanguages: "Translations",
       translationBadge: "Translation",
+    },
+    portfolio: {
+      label: "Portfolio",
+      title: "Proof of impact for bilingual launches.",
+      description:
+        "Explore interactive case studies that pair English and Spanish assets, modal footnotes, and reusable data sources.",
+      filtersLabel: "Filter portfolio",
+      allLabel: "All work",
+      viewProject: "View project",
+      openProject: (title: string) => `Open details for ${title}`,
+      modal: {
+        close: "Close project modal",
+        overview: "Overview",
+        highlights: "Highlights",
+        metrics: "Signals",
+        stack: "Stack",
+        links: "Artifacts",
+      },
     },
     footnotes: {
       heading: "Footnotes",
@@ -158,6 +193,24 @@ export const dictionaries: Record<Locale, DictionaryShape> = {
       updated: "Actualizado",
       availableLanguages: "Traducciones",
       translationBadge: "Traducción",
+    },
+    portfolio: {
+      label: "Portafolio",
+      title: "Evidencia de impacto bilingüe.",
+      description:
+        "Explora casos interactivos que combinan activos en inglés y español, notas al pie en modales y fuentes de datos tipadas.",
+      filtersLabel: "Filtrar portafolio",
+      allLabel: "Todo el trabajo",
+      viewProject: "Ver proyecto",
+      openProject: (title: string) => `Abrir detalles de ${title}`,
+      modal: {
+        close: "Cerrar modal del proyecto",
+        overview: "Resumen",
+        highlights: "Momentos clave",
+        metrics: "Indicadores",
+        stack: "Stack tecnológico",
+        links: "Materiales",
+      },
     },
     footnotes: {
       heading: "Notas al pie",
