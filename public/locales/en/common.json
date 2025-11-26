@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Home",
+    "toggleTheme": "Toggle theme",
+    "switchToEnglish": "English",
+    "switchToSpanish": "Spanish"
+  },
+  "footer": {
+    "madeBy": "Starter kit ready for multi-lingual email features."
+  }
+}

@@ -1,35 +1,40 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from "tailwindcss/defaultTheme";
 import typography from "@tailwindcss/typography";
 
 const config: Config = {
-  darkMode: "class",
+  darkMode: ["class"],
   content: [
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-    "./content/**/*.{md,mdx}",
+    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/features/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/lib/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    container: {
-      center: true,
-      padding: "1rem",
-      screens: {
-        "2xl": "1200px",
-      },
-    },
     extend: {
+      container: {
+        center: true,
+        padding: {
+          DEFAULT: "1.5rem",
+          lg: "3rem",
+        },
+      },
       colors: {
-        background: "var(--background)",
-        foreground: "var(--foreground)",
-        muted: "var(--muted)",
-        border: "var(--border)",
-        accent: "var(--accent)",
+        background: "hsl(var(--background))",
+        foreground: "hsl(var(--foreground))",
+        primary: "hsl(var(--primary))",
+        muted: "hsl(var(--muted))",
+        "muted-foreground": "hsl(var(--muted-foreground))",
+        border: "hsl(var(--border))",
+        card: "hsl(var(--card))",
+        "card-foreground": "hsl(var(--card-foreground))",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "Inter", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "SFMono-Regular", "monospace"],
+        sans: ["var(--font-sans)", ...defaultTheme.fontFamily.sans],
+        mono: ["var(--font-mono)", ...defaultTheme.fontFamily.mono],
       },
     },
   },
   plugins: [typography],
 };
-
 export default config;

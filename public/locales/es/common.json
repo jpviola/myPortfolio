@@ -1,0 +1,11 @@
+{
+  "nav": {
+    "home": "Inicio",
+    "toggleTheme": "Cambiar tema",
+    "switchToEnglish": "Inglés",
+    "switchToSpanish": "Español"
+  },
+  "footer": {
+    "madeBy": "Base lista para funciones multilingües y correo."
+  }
+}
