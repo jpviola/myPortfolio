@@ -1,6 +1,6 @@
 'use client';
 
-import { ReactNode, createContext, useCallback, useContext, useMemo, useRef } from 'react';
+import { ReactNode, createContext, useContext } from 'react';
 
 interface FootnoteRegistration {
   id: string;
@@ -18,25 +18,22 @@ interface FootnoteContextValue {
 const FootnoteContext = createContext<FootnoteContextValue | null>(null);
 
 export function FootnoteProvider({ children, heading }: { children: ReactNode; heading: string; }) {
-  const storeRef = useRef<FootnoteEntry[]>([]);
-  storeRef.current = [];
+  const notes: FootnoteEntry[] = [];
 
-  const register = useCallback((entry: FootnoteRegistration) => {
-    const existing = storeRef.current.find((note) => note.id === entry.id);
+  const register = (entry: FootnoteRegistration) => {
+    const existing = notes.find((note) => note.id === entry.id);
     if (existing) {
       return existing.index;
     }
-    const index = storeRef.current.length + 1;
-    storeRef.current.push({ ...entry, index });
+    const index = notes.length + 1;
+    notes.push({ ...entry, index });
     return index;
-  }, [storeRef]);
-
-  const value = useMemo<FootnoteContextValue>(() => ({ register }), [register]);
+  };
 
   return (
-    <FootnoteContext.Provider value={value}>
+    <FootnoteContext.Provider value={{ register }}>
       {children}
-      <FootnoteList heading={heading} notes={storeRef.current} />
+      <FootnoteList heading={heading} notes={notes} />
     </FootnoteContext.Provider>
   );
 }

@@ -13,7 +13,7 @@ export function AppProviders({ children, initialLocale, initialTheme }: {
 }) {
   return (
     <ThemeProvider initialTheme={initialTheme}>
-      <LanguageProvider initialLocale={initialLocale}>{children}</LanguageProvider>
+      <LanguageProvider key={initialLocale} initialLocale={initialLocale}>{children}</LanguageProvider>
     </ThemeProvider>
   );
 }

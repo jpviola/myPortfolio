@@ -1,0 +1,119 @@
+{
+  "navigation": {
+    "hero": "Hero",
+    "highlights": "Career Highlights",
+    "cv": "CV",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "themeLabel": "Theme",
+    "languageLabel": "Language",
+    "themeLight": "Light",
+    "themeDark": "Dark"
+  },
+  "home": {
+    "heroTitle": "Bilingual insights for product leaders.",
+    "heroBody": "Capture research notes once and publish them in English or Spanish. The starter blog demonstrates MDX-powered translations, custom footnotes, and a production-ready contact path.",
+    "primaryCta": "Browse the blog",
+    "secondaryCta": "Start a conversation",
+    "statLabel": "Reusable translation pairs",
+    "statValue": "40% time saved",
+    "highlightsTitle": "Career highlights",
+    "highlightsBody": "A few snapshots from the last decade of multilingual shipping.",
+    "highlights": [
+      {
+        "title": "Bilingual MDX posts",
+        "body": "Drop an .mdx file per locale and the index automatically pairs translations, highlights fallbacks, and keeps metadata in sync."
+      },
+      {
+        "title": "Custom footnotes",
+        "body": "Use the <Footnote> component anywhere inside a post and the system renders numbered references plus a localized list at the bottom."
+      },
+      {
+        "title": "Locale-aware contact",
+        "body": "A validated contact form surfaces schema errors in the active language and relays sanitized payloads through Nodemailer."
+      }
+    ],
+    "cvTitle": "CV & availability",
+    "cvBody": "Seven years leading research-ready content systems across North and Latin America.",
+    "cvCta": "Download CV",
+    "portfolioTitle": "Recent portfolio",
+    "portfolioBody": "Prototype systems, bilingual drip journeys, and async ritual toolkits shipped with small teams.",
+    "portfolioProjects": [
+      {
+        "title": "Async research notebooks",
+        "body": "Documented rituals in both languages so hybrid squads could reuse insights without translation debt."
+      },
+      {
+        "title": "Localized onboarding flows",
+        "body": "Mapped expectations per market and codified tone so product teams could launch aligned UI copy."
+      },
+      {
+        "title": "Lightweight design ops",
+        "body": "Built Figma kits with paired EN/ES tokens so designers prototyped in their preferred language."
+      }
+    ],
+    "blogSectionTitle": "From the blog",
+    "blogSectionBody": "Longer notes on bilingual product strategy, MDX workflows, and the contact relays powering this starter.",
+    "blogSectionCta": "Read the blog",
+    "contactSectionTitle": "Contact",
+    "contactSectionBody": "Send a bilingual brief and we will route it to the right inbox.",
+    "contactSectionCta": "Start a conversation"
+  },
+  "blog": {
+    "title": "Field notes",
+    "description": "Every article ships with locale-aware metadata. When a translation is missing we gracefully fall back to the closest available language.",
+    "translationsLabel": "Available in",
+    "fallbackLabel": "Showing the {{language}} version while we translate this post.",
+    "fallbackChip": "{{language}} version",
+    "readPost": "Read article",
+    "missingPosts": "No posts available yet."
+  },
+  "blogPost": {
+    "published": "Published",
+    "updated": "Updated",
+    "availableLanguages": "Translations",
+    "translationBadge": "Translation"
+  },
+  "footnotes": {
+    "heading": "Footnotes"
+  },
+  "contact": {
+    "title": "Contact",
+    "description": "Send a bilingual request and we'll route it to the right inbox. The handler validates input, localizes errors, and relays via Nodemailer.",
+    "nameLabel": "Full name",
+    "emailLabel": "Email",
+    "messageLabel": "Message",
+    "submitCta": "Send message",
+    "successTitle": "Message sent",
+    "successBody": "Thanks for reaching out. We'll reply soon.",
+    "errors": {
+      "nameRequired": "Please add your name.",
+      "nameLength": "Name should be at least 2 characters.",
+      "emailInvalid": "Add a valid email address.",
+      "messageRequired": "Let us know how we can help.",
+      "messageLength": "Messages should be between 10 and 1500 characters.",
+      "requestError": "We couldn't send your message. Try again in a moment."
+    }
+  },
+  "footer": {
+    "contactHeading": "Let's build together",
+    "contactDescription": "Email or call to talk about bilingual products and content.",
+    "emailLabel": "Email",
+    "emailValue": "hola@localelab.studio",
+    "phoneLabel": "Phone",
+    "phoneValue": "+34 000 000 000",
+    "socialHeading": "Social",
+    "socialDescription": "Follow the experiments in both languages.",
+    "socialLinks": [
+      { "label": "LinkedIn", "value": "@locale-lab" },
+      { "label": "Dribbble", "value": "@locale-lab" },
+      { "label": "GitHub", "value": "@locale-lab" }
+    ],
+    "rights": "All rights reserved."
+  },
+  "languageNames": {
+    "en": "English",
+    "es": "Spanish"
+  }
+}

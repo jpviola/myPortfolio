@@ -36,7 +36,7 @@ export function PostCard({ summary, dictionary }: PostCardProps) {
         <div className="flex flex-wrap items-center gap-2 text-xs font-semibold text-foreground/70">
           <span>{dictionary.blog.translationsLabel}</span>
           {summary.availableLanguages.map((language) => {
-            const label = dictionary.blog.fallbackChip(dictionary.languageNames[language]);
+            const label = dictionary.blog.fallbackChip.replace('{{language}}', dictionary.languageNames[language]);
             const isActive = summary.activeLanguage === language;
             return (
               <span
@@ -50,7 +50,7 @@ export function PostCard({ summary, dictionary }: PostCardProps) {
         </div>
         {summary.isFallback && (
           <p className="text-xs text-foreground/60">
-            {dictionary.blog.fallbackLabel(dictionary.languageNames[summary.activeLanguage])}
+            {dictionary.blog.fallbackLabel.replace('{{language}}', dictionary.languageNames[summary.activeLanguage])}
           </p>
         )}
         <Link

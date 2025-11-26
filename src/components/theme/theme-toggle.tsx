@@ -1,26 +1,41 @@
 'use client';
 
 import clsx from 'clsx';
+import { useTransition } from 'react';
 import { useLanguage } from '@/components/providers/language-provider';
 import { useTheme } from '@/components/providers/theme-provider';
+import { setThemePreference } from '@/app/actions/preferences';
+import { ThemePreference } from '@/lib/theme/config';
 
 export function ThemeToggle() {
-  const { theme, toggleTheme, isPending } = useTheme();
   const { dictionary } = useLanguage();
+  const { theme, resolvedTheme, setTheme } = useTheme();
+  const [isPending, startTransition] = useTransition();
+
+  const currentTheme = (theme ?? resolvedTheme ?? 'light') as ThemePreference;
+  const isDark = currentTheme === 'dark';
+
+  const handleToggle = () => {
+    const nextTheme: ThemePreference = isDark ? 'light' : 'dark';
+    setTheme(nextTheme);
+    startTransition(async () => {
+      await setThemePreference(nextTheme);
+    });
+  };
 
   return (
     <button
       type="button"
-      onClick={toggleTheme}
+      onClick={handleToggle}
       disabled={isPending}
       className={clsx(
-        'inline-flex items-center gap-1 rounded-full border border-border bg-background/80 px-3 py-1 text-xs font-medium transition',
-        theme === 'dark' ? 'text-accent' : 'text-foreground/70 hover:text-foreground',
+        'inline-flex items-center gap-2 rounded-full border border-border bg-background/80 px-4 py-2 text-xs font-semibold uppercase tracking-[0.2em] transition',
+        isDark ? 'text-accent' : 'text-foreground/70 hover:text-foreground'
       )}
       aria-label={dictionary.navigation.themeLabel}
     >
-      {theme === 'dark' ? <MoonIcon /> : <SunIcon />}
-      {theme === 'dark' ? dictionary.navigation.themeDark : dictionary.navigation.themeLight}
+      {isDark ? <MoonIcon /> : <SunIcon />}
+      <span>{isDark ? dictionary.navigation.themeDark : dictionary.navigation.themeLight}</span>
     </button>
   );
 }
