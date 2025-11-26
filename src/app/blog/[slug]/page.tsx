@@ -72,7 +72,7 @@ export default async function BlogPostPage({ params }: { params: { slug: string 
         </dl>
         {summary.isFallback && (
           <p className="rounded-2xl border border-dashed border-border/70 bg-white/70 p-4 text-xs text-foreground/70 dark:bg-muted/60">
-            {dictionary.blog.fallbackLabel(dictionary.languageNames[summary.activeLanguage])}
+            {dictionary.blog.fallbackLabel.replace('{{language}}', dictionary.languageNames[summary.activeLanguage])}
           </p>
         )}
       </div>

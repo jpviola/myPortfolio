@@ -1,9 +1,10 @@
 'use client';
 
 import { ReactNode, createContext, useCallback, useContext, useEffect, useMemo, useState, useTransition } from 'react';
-import { Dictionary, Locale, dictionaries } from '@/lib/i18n/config';
+import { Dictionary, Locale, getDictionary } from '@/lib/i18n/config';
 import { setLanguagePreference } from '@/app/actions/preferences';
 import { useRouter } from 'next/navigation';
+import { i18n } from 'next-i18next';
 
 interface LanguageContextValue {
   locale: Locale;
@@ -21,17 +22,26 @@ export function LanguageProvider({ children, initialLocale }: { children: ReactN
 
   useEffect(() => {
     setLocaleState(initialLocale);
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = initialLocale;
+    }
   }, [initialLocale]);
 
   const changeLocale = useCallback((nextLocale: Locale) => {
     setLocaleState(nextLocale);
+    if (i18n?.changeLanguage) {
+      i18n.changeLanguage(nextLocale);
+    }
+    if (typeof document !== 'undefined') {
+      document.documentElement.lang = nextLocale;
+    }
     startTransition(async () => {
       await setLanguagePreference(nextLocale);
       router.refresh();
     });
   }, [router]);
 
-  const dictionary = useMemo<Dictionary>(() => dictionaries[locale], [locale]);
+  const dictionary = useMemo<Dictionary>(() => getDictionary(locale), [locale]);
 
   const value = useMemo<LanguageContextValue>(() => ({
     locale,
