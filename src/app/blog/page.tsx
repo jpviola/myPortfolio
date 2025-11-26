@@ -4,7 +4,7 @@ import { getServerLocale } from '@/lib/i18n/server';
 import { getBlogSummaries } from '@/lib/posts';
 
 export default async function BlogPage() {
-  const locale = getServerLocale();
+  const locale = await getServerLocale();
   const dictionary = getDictionary(locale);
   const posts = await getBlogSummaries(locale);
 
