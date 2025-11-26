@@ -18,8 +18,8 @@ const features = [
   },
 ];
 
-export default function HomePage() {
-  const locale = getServerLocale();
+export default async function HomePage() {
+  const locale = await getServerLocale();
   const dictionary = getDictionary(locale);
 
   return (

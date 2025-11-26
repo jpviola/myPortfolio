@@ -2,8 +2,8 @@ import { ContactForm } from '@/components/contact/contact-form';
 import { getDictionary } from '@/lib/i18n/config';
 import { getServerLocale } from '@/lib/i18n/server';
 
-export default function ContactPage() {
-  const locale = getServerLocale();
+export default async function ContactPage() {
+  const locale = await getServerLocale();
   const dictionary = getDictionary(locale);
 
   return (
