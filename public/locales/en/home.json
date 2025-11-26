@@ -1,0 +1,7 @@
+{
+  "hero": {
+    "title": "Bootstraped Next.js workspace",
+    "body": "This baseline ships Tailwind, theming, and i18n so your team can focus on features instead of plumbing."
+  },
+  "cta": "Review the README to finish configuring email delivery."
+}

@@ -1,54 +1,56 @@
-# Locale Lab
+# Next.js Foundation Starter
 
-A bilingual Next.js starter that ships a lightweight MDX blog, persistent language/theme toggles, localized footnotes, and a production-ready contact form that relays messages with Nodemailer.
+This repository bootstraps a modern Next.js 14 App Router workspace with TypeScript, Tailwind CSS, next-themes, and next-i18next already wired together. It serves as a clean baseline for future product work that needs a bilingual UI, theme toggles, and consistent formatting/linting out of the box.
 
-## Highlights
+## What's included
 
-- **MDX-backed blog** – Drop one `.mdx` file per locale under `content/blog`. Metadata declares the slug, language, and translation key so the blog index can pair languages automatically.
-- **Automatic translation fallback** – If a reader selects Spanish but only the English file exists (see `calm-release.en.mdx`), the UI badges the active fallback language. The inverse is demonstrated by the Spanish-only `aprendizajes-async.es.mdx` post.
-- **Custom footnotes** – Authors use `<Footnote id="context">…</Footnote>` anywhere in MDX. The page wraps content with a server-side `FootnoteProvider` that injects a localized footnote list at the end of the article.
-- **Validated contact flow** – A client-side form plus `/api/contact` route share the same Zod schema. Errors surface in the active locale and successful submissions are sent through Nodemailer using environment-configured credentials.
-- **Responsive, themed UI** – Light/dark themes sync with a cookie so the SSR layout matches the client. A global language toggle persists preference and triggers revalidation so every page reflects the selected locale.
+- **App Router + TypeScript** – opinionated project layout in `src/` with strict type-checking enabled.
+- **Tailwind CSS** – custom tokens, Google fonts, typography plugin, and sensible container rules baked into `globals.css` and `tailwind.config.ts`.
+- **Theming + i18n providers** – a single `Providers` component combines `next-themes` (system-aware dark mode) with `next-i18next` so both contexts are available everywhere.
+- **Locale assets** – placeholder `en` and `es` namespaces stored under `public/locales/*` with next-i18next configured for shared namespaces.
+- **Tooling** – ESLint (Next presets + Prettier) and Prettier formatting scripts to keep the codebase tidy.
 
-## Project structure
-
-```
-content/blog            // MDX posts with bilingual metadata
-src/app                // App Router pages, API route, and layout
-src/components         // UI primitives, layout, blog cards, contact form
-src/lib                // i18n dictionary, locale/theme helpers, MDX loader, validation
-```
-
-### Authoring posts
-
-1. Create one file per locale, e.g. `content/blog/connected-rituals.en.mdx` and `content/blog/connected-rituals.es.mdx`.
-2. Required frontmatter fields:
-   ```yaml
-   ---
-   title: "Connected rituals for async squads"
-   description: "Short summary"
-   slug: "connected-rituals"        # route path, shared by every translation
-   translationKey: "connected-rituals" # optional, defaults to slug
-   language: "en"                    # en or es
-   publishedAt: "2024-10-12"
-   updatedAt: "2024-10-20"           # optional
-   ---
-   ```
-3. Use `<Footnote id="any-id">context</Footnote>` anywhere in the body. The list is rendered automatically as "Footnotes" (EN) or "Notas al pie" (ES).
-4. Missing translations are handled automatically: readers see the closest available language plus a notice generated from the locale dictionary.
-
-## Running locally
+## Getting started
 
 ```bash
 npm install
 npm run dev
 ```
 
-Navigate to `http://localhost:3000` and use the header toggles to change language or theme. The blog index and contact page update instantly.
+Visit [http://localhost:3000](http://localhost:3000) to see the starter interface. The landing page demonstrates:
 
-### Required environment variables
+- Theme toggling with `next-themes` and CSS variables.
+- Live language switching backed by next-i18next resources.
+- A minimalist layout using the configured design tokens and Google fonts.
 
-Copy `.env.example` into `.env.local` and fill in the credentials from your SMTP provider (Nodemailer works with any SMTP server or services such as SendGrid/Postmark):
+## Available scripts
+
+| Script | Description |
+| --- | --- |
+| `npm run dev` | Start the local development server (watch mode). |
+| `npm run build` | Create an optimized production build. |
+| `npm run start` | Serve the production build locally. |
+| `npm run lint` | Run ESLint using Next.js' recommended config + Prettier. |
+| `npm run format` | Format all supported files with Prettier. |
+
+> CI should run `npm run lint` and `npm run build` to ensure both linting and compilation succeed.
+
+## Internationalization details
+
+- Default locale: **English (`en`)**
+- Secondary locale: **Spanish (`es`)**
+- Shared namespaces: `common`, `home`
+- Translation files live under `public/locales/{locale}/{namespace}.json`.
+
+Add new copy by editing the JSON files or creating additional namespaces, then reference keys via `useTranslation("namespace")` on the client or helper utilities on the server.
+
+## Theming
+
+`src/app/providers.tsx` registers `ThemeProvider` with system detection enabled and wraps it with `appWithTranslation`. The root layout (`src/app/layout.tsx`) applies both Google fonts and injects this combined provider, so any component can call `useTheme` or `useTranslation` immediately.
+
+## Environment placeholders
+
+Future email/Nodemailer style features can reuse the following environment variables. Copy `.env.example` to `.env.local` and populate them when the integration is implemented:
 
 ```
 EMAIL_SERVER_HOST=
@@ -59,38 +61,12 @@ EMAIL_FROM=
 EMAIL_TO=
 ```
 
-The `/api/contact` route validates payloads, localizes errors, and calls Nodemailer with the values above. `EMAIL_FROM` is the authenticated sender and `EMAIL_TO` is the inbox that receives submissions.
+They are not consumed yet, but the placeholders make it easy to wire up a contact form or transactional email pipeline later.
 
-## Deploying on Vercel
+## Deployment
 
-1. **Create a new project** and select this repository.
-2. **Build command**: `npm run build` (default output directory `.next`).
-3. **Install command**: `npm install` (default).
-4. **Environment variables**: add the six variables listed above in the “Production” environment. Vercel injects them at build and runtime.
-5. **Run**: Vercel will execute `npm start` for preview/production once the build succeeds.
+1. Run `npm run build` locally to ensure the project compiles.
+2. Deploy to Vercel (or your platform of choice) with `npm install` as the install command and `npm run build` as the build command.
+3. Provide the environment variables above in the hosting platform once you implement the email flow.
 
-Because the blog relies on filesystem MDX files, no additional CMS setup is required. Updating or adding a post is as simple as committing a new file under `content/blog` and redeploying.
-
-## Footnote usage
-
-```mdx
-Something worth clarifying<Footnote id="clarify">Extra context.</Footnote>
-```
-
-- `id` must be unique within the post so references link correctly.
-- Footnotes are rendered with locale-aware headings and `↩` back-links.
-
-## Contact workflow
-
-1. The client form (`ContactForm`) runs the shared Zod schema before sending a request.
-2. `/api/contact` re-validates, localizes response errors via the active locale sent in the payload, and hands the sanitized values to Nodemailer.
-3. Errors bubble back to the UI with translated copy pulled from the dictionary.
-
-## Scripts
-
-- `npm run dev` – start the local dev server.
-- `npm run build` – compile the production bundle.
-- `npm run start` – run the production server locally.
-- `npm run lint` – run Next.js lint checks.
-
-Enjoy shipping bilingual content without duplicating entire stacks.
+Happy shipping! The repo is ready for additional routes, features, and localization work.

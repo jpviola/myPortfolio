@@ -1,0 +1,7 @@
+{
+  "hero": {
+    "title": "Espacio Next.js listo",
+    "body": "Este punto de partida incluye Tailwind, temas e i18n para que el equipo se concentre en construir."
+  },
+  "cta": "Consulta el README para terminar la configuración del correo."
+}
