@@ -14,10 +14,24 @@ A bilingual Next.js starter that ships a lightweight MDX blog, persistent langua
 
 ```
 content/blog            // MDX posts with bilingual metadata
+src/content/cv.ts      // Typed bilingual data for the CV/highlights sections
 src/app                // App Router pages, API route, and layout
 src/components         // UI primitives, layout, blog cards, contact form
 src/lib                // i18n dictionary, locale/theme helpers, MDX loader, validation
 ```
+
+## CV & highlights modules
+
+`src/content/cv.ts` packages the structured data for the academic CV, research focus, teaching experience, publications, and highlight cards. Each entry stores an English and Spanish string (or string array) so the UI can instantly swap copy when visitors toggle the locale.
+
+- `EducationTimeline`, `ResearchOverview`, `TeachingList`, `PublicationGrid`, and `HighlightsCards` live under `src/components/cv/` and consume the shared module.
+- Every section is responsive, theme-aware, and exposes `aria-labelledby` landmarks for accessibility.
+
+### Adding or editing CV entries
+
+1. Open `src/content/cv.ts` and locate the section you want to update.
+2. Duplicate an existing entry and adjust the `en`/`es` fields (arrays for bullet lists) to keep translations aligned.
+3. Components automatically render new entries without any further wiring—no layout changes required.
 
 ### Authoring posts
 
