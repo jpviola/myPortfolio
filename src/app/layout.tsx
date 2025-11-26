@@ -22,13 +22,13 @@ export const metadata: Metadata = {
     'MDX-powered blog and contact workflow that automatically pairs English/Spanish content, adds localized footnotes, and relays contact forms via email.',
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const locale = getServerLocale();
-  const theme = getServerTheme();
+  const locale = await getServerLocale();
+  const theme = await getServerTheme();
 
   return (
     <html lang={locale} className={theme === 'dark' ? 'dark' : ''} suppressHydrationWarning>

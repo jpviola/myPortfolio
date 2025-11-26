@@ -1,13 +1,15 @@
 import { cookies, headers } from "next/headers";
 import { FALLBACK_LOCALE, LOCALE_COOKIE, Locale, isLocale } from "./config";
 
-export function getServerLocale(): Locale {
-  const stored = cookies().get(LOCALE_COOKIE)?.value;
+export async function getServerLocale(): Promise<Locale> {
+  const cookieStore = await cookies();
+  const stored = cookieStore.get(LOCALE_COOKIE)?.value;
   if (isLocale(stored)) {
     return stored;
   }
 
-  const acceptLanguage = headers().get("accept-language");
+  const headerList = await headers();
+  const acceptLanguage = headerList.get("accept-language");
   if (acceptLanguage) {
     const preferred = acceptLanguage
       .split(",")

@@ -1,8 +1,9 @@
 import { cookies } from "next/headers";
 import { DEFAULT_THEME, THEME_COOKIE, ThemePreference, isTheme } from "./config";
 
-export function getServerTheme(): ThemePreference {
-  const stored = cookies().get(THEME_COOKIE)?.value;
+export async function getServerTheme(): Promise<ThemePreference> {
+  const cookieStore = await cookies();
+  const stored = cookieStore.get(THEME_COOKIE)?.value;
   if (isTheme(stored)) {
     return stored;
   }

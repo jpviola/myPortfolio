@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { PortfolioGallery } from '@/components/portfolio/portfolio-gallery';
 import { getServerLocale } from '@/lib/i18n/server';
 import { getDictionary } from '@/lib/i18n/config';
 
