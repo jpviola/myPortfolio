@@ -1,68 +1,139 @@
 {
   "navigation": {
-    "hero": "Hero",
-    "highlights": "Career Highlights",
-    "cv": "CV",
+    "hero": "Panorama",
+    "highlights": "Frameworks",
+    "cv": "Education",
     "portfolio": "Portfolio",
     "blog": "Blog",
     "contact": "Contact",
     "themeLabel": "Theme",
     "languageLabel": "Language",
     "themeLight": "Light",
-    "themeDark": "Dark"
+    "themeDark": "Dark",
+    "brand": "Ari Land Studio"
   },
   "home": {
-    "heroTitle": "Bilingual insights for product leaders.",
-    "heroBody": "Capture research notes once and publish them in English or Spanish. The starter blog demonstrates MDX-powered translations, custom footnotes, and a production-ready contact path.",
-    "primaryCta": "Browse the blog",
-    "secondaryCta": "Start a conversation",
-    "statLabel": "Reusable translation pairs",
-    "statValue": "40% time saved",
-    "highlightsTitle": "Career highlights",
-    "highlightsBody": "A few snapshots from the last decade of multilingual shipping.",
+    "heroTagline": "Freelance landscape studio",
+    "heroTitle": "Landscape hero pages for indie founders.",
+    "heroBody": "I'm Ari, a designer-developer building wide-screen hero pages, lightweight blogs, and reliable contact flows. Every sprint pairs Vite.js on the front, Express on the back, and color-led storytelling throughout.",
+    "primaryCta": "Start a project",
+    "secondaryCta": "See the journal",
+    "heroFrameworks": [
+      { "label": "Frontend", "value": "Vite.js + Tailwind" },
+      { "label": "Backend", "value": "Express API" },
+      { "label": "Blog", "value": "VitePress + MDX" }
+    ],
+    "heroStats": [
+      { "label": "Launches", "value": "38" },
+      { "label": "Avg sprint", "value": "10 days" },
+      { "label": "Referrals", "value": "92%" }
+    ],
+    "heroSceneLabels": [
+      "Animated hero shots",
+      "Express automations",
+      "Simple Vite blog"
+    ],
+    "highlightsTitle": "Studio panorama",
+    "highlightsBody": "Color-coded hero layouts with motion-first storytelling and calm publishing stacks.",
     "highlights": [
       {
-        "title": "Bilingual MDX posts",
-        "body": "Drop an .mdx file per locale and the index automatically pairs translations, highlights fallbacks, and keeps metadata in sync."
+        "badge": "Landscape hero",
+        "title": "Wide-screen layouts",
+        "body": "Edge-to-edge compositions, layered gradients, and scroll-triggered typography tuned for every breakpoint."
       },
       {
-        "title": "Custom footnotes",
-        "body": "Use the <Footnote> component anywhere inside a post and the system renders numbered references plus a localized list at the bottom."
+        "badge": "Frameworks",
+        "title": "Vite + Express core",
+        "body": "Vite.js handles motion and states while Express relays contact forms, files, and smart replies."
       },
       {
-        "title": "Locale-aware contact",
-        "body": "A validated contact form surfaces schema errors in the active language and relays sanitized payloads through Nodemailer."
+        "badge": "Publishing",
+        "title": "Simple MDX blog",
+        "body": "Portable MDX content rendered with VitePress so notes stay versioned and easy to extend."
       }
     ],
-    "cvTitle": "CV & availability",
-    "cvBody": "Seven years leading research-ready content systems across North and Latin America.",
-    "cvCta": "Download CV",
-    "portfolioTitle": "Recent portfolio",
-    "portfolioBody": "Prototype systems, bilingual drip journeys, and async ritual toolkits shipped with small teams.",
+    "cvTitle": "Education & credentials",
+    "cvBody": "Design school roots, lifelong prototyping programs, and mentoring cohorts focused on motion systems.",
+    "cvCta": "Request the CV",
+    "educationTimeline": [
+      {
+        "year": "2015",
+        "title": "BFA — Visual Communication",
+        "description": "Politecnico di Milano · Specialized in editorial systems and kinetic typography."
+      },
+      {
+        "year": "2018",
+        "title": "Google UX Nanodegree",
+        "description": "Scholarship program centered on research, accessibility, and prototyping in public."
+      },
+      {
+        "year": "2021",
+        "title": "Remote Product Residency",
+        "description": "Led async teams through cinematic hero flows and expressive component libraries."
+      }
+    ],
+    "portfolioTitle": "Featured case studies",
+    "portfolioBody": "Sprints combining Vite.js, Express, and MDX to ship cinematic, bilingual landing pages.",
+    "portfolioCta": "Review the portfolio deck",
     "portfolioProjects": [
       {
-        "title": "Async research notebooks",
-        "body": "Documented rituals in both languages so hybrid squads could reuse insights without translation debt."
+        "title": "Solstice Atlas",
+        "body": "Energy marketplace hero with animated landscape layers and realtime pricing overlays.",
+        "stack": ["Vite.js", "GSAP", "Three.js"]
       },
       {
-        "title": "Localized onboarding flows",
-        "body": "Mapped expectations per market and codified tone so product teams could launch aligned UI copy."
+        "title": "Field Notes CRM",
+        "body": "Express API powering proposal automation, contact sync, and secure uploads.",
+        "stack": ["Express", "Postgres", "Zod"]
       },
       {
-        "title": "Lightweight design ops",
-        "body": "Built Figma kits with paired EN/ES tokens so designers prototyped in their preferred language."
+        "title": "Nomad Sound",
+        "body": "MDX + VitePress blog with bilingual routing and annotated playlists.",
+        "stack": ["VitePress", "MDX", "i18n"]
+      },
+      {
+        "title": "Studio Orbit",
+        "body": "Responsive portfolio mirroring Notion briefs with dual-theme art direction.",
+        "stack": ["React", "Notion API", "Tailwind"]
       }
     ],
-    "blogSectionTitle": "From the blog",
-    "blogSectionBody": "Longer notes on bilingual product strategy, MDX workflows, and the contact relays powering this starter.",
-    "blogSectionCta": "Read the blog",
-    "contactSectionTitle": "Contact",
-    "contactSectionBody": "Send a bilingual brief and we will route it to the right inbox.",
-    "contactSectionCta": "Start a conversation"
+    "blogSectionTitle": "Journal notes",
+    "blogSectionBody": "Quick breakdowns on motion systems, async collaboration, and keeping the stack simple.",
+    "blogSectionCta": "Go to the blog",
+    "blogPosts": [
+      {
+        "title": "Designing landscape hero flows",
+        "excerpt": "Map the horizon, layer gradients, then choreograph reveals that echo sunrise motion.",
+        "readingTime": "5 min read"
+      },
+      {
+        "title": "Pairing Vite + Express for solos",
+        "excerpt": "A lightweight recipe for handling contact flows, localization, and secure uploads.",
+        "readingTime": "6 min read"
+      },
+      {
+        "title": "Keeping MDX blogs friendly",
+        "excerpt": "Structure MDX files, wire VitePress, and let writers focus on story over plumbing.",
+        "readingTime": "4 min read"
+      }
+    ],
+    "contactSection": {
+      "tagline": "Contact",
+      "title": "Tell me about your next horizon",
+      "body": "Send a short brief and I'll reply within 24 hours with a moodboard, scope, and sprint calendar.",
+      "socialHeading": "Follow the studio",
+      "socialDescription": "Process clips, color studies, and release notes land in these channels.",
+      "socialLinks": [
+        { "id": "linkedin", "label": "LinkedIn", "handle": "/in/ari-land", "href": "https://www.linkedin.com/in/ari-land" },
+        { "id": "github", "label": "GitHub", "handle": "@arialand", "href": "https://github.com/arialand" },
+        { "id": "facebook", "label": "Facebook", "handle": "@arialand.studio", "href": "https://www.facebook.com/arialand.studio" },
+        { "id": "x", "label": "X", "handle": "@ari_land", "href": "https://x.com/ari_land" }
+      ]
+    }
   },
   "blog": {
     "title": "Field notes",
-    "description": "Every article ships with locale-aware metadata. When a translation is missing we gracefully fall back to the closest available language.",
+    "description": "Every article supports English & Spanish. Missing translations fall back gracefully with a friendly badge.",
     "translationsLabel": "Available in",
     "fallbackLabel": "Showing the {{language}} version while we translate this post.",
     "fallbackChip": "{{language}} version",
@@ -80,35 +151,37 @@
   },
   "contact": {
     "title": "Contact",
-    "description": "Send a bilingual request and we'll route it to the right inbox. The handler validates input, localizes errors, and relays via Nodemailer.",
+    "description": "Share your idea in English or Spanish. I validate every field, localize responses, and relay via a secure Express + Nodemailer stack.",
     "nameLabel": "Full name",
     "emailLabel": "Email",
     "messageLabel": "Message",
     "submitCta": "Send message",
     "successTitle": "Message sent",
-    "successBody": "Thanks for reaching out. We'll reply soon.",
+    "successBody": "Thanks for reaching out. I'll reply soon.",
     "errors": {
       "nameRequired": "Please add your name.",
       "nameLength": "Name should be at least 2 characters.",
       "emailInvalid": "Add a valid email address.",
-      "messageRequired": "Let us know how we can help.",
+      "messageRequired": "Let me know how I can help.",
       "messageLength": "Messages should be between 10 and 1500 characters.",
       "requestError": "We couldn't send your message. Try again in a moment."
     }
   },
   "footer": {
+    "brandName": "Ari Land Studio",
     "contactHeading": "Let's build together",
-    "contactDescription": "Email or call to talk about bilingual products and content.",
+    "contactDescription": "Email or call to talk about landscape hero pages and bilingual content systems.",
     "emailLabel": "Email",
-    "emailValue": "hola@localelab.studio",
+    "emailValue": "studio@ariland.com",
     "phoneLabel": "Phone",
-    "phoneValue": "+34 000 000 000",
+    "phoneValue": "+34 611 000 452",
     "socialHeading": "Social",
-    "socialDescription": "Follow the experiments in both languages.",
+    "socialDescription": "Follow process clips, palettes, and live sprints.",
     "socialLinks": [
-      { "label": "LinkedIn", "value": "@locale-lab" },
-      { "label": "Dribbble", "value": "@locale-lab" },
-      { "label": "GitHub", "value": "@locale-lab" }
+      { "label": "LinkedIn", "value": "/in/ari-land" },
+      { "label": "GitHub", "value": "@arialand" },
+      { "label": "Facebook", "value": "@arialand.studio" },
+      { "label": "X", "value": "@ari_land" }
     ],
     "rights": "All rights reserved."
   },

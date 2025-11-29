@@ -8,6 +8,7 @@ export function SiteFooter() {
   const { dictionary } = useLanguage();
   const year = new Date().getFullYear();
   const footer = dictionary.footer;
+  const brandName = footer.brandName ?? 'Ari Land Studio';
 
   return (
     <footer className="border-t border-border/70 bg-background/90">
@@ -46,7 +47,7 @@ export function SiteFooter() {
       <div className="border-t border-border/60 bg-background/80">
         <div className="container flex flex-col gap-4 py-6 sm:flex-row sm:items-center sm:justify-between">
           <div className="text-center text-xs font-semibold uppercase tracking-[0.3em] text-foreground/50 sm:text-left">
-            <p>© {year} Locale Lab</p>
+            <p>© {year} {brandName}</p>
             <p className="mt-1">{footer.rights}</p>
           </div>
           <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:gap-4">
