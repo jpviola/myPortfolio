@@ -33,3 +33,70 @@ body {
 ::selection {
   background: rgba(14, 165, 233, 0.35);
 }
+
+@keyframes gradient-pan {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+@keyframes float-y {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes tilt-wave {
+  0% {
+    transform: rotate(-1deg);
+  }
+  50% {
+    transform: rotate(1deg);
+  }
+  100% {
+    transform: rotate(-1deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@layer utilities {
+  .animate-gradient {
+    animation: gradient-pan 16s ease infinite;
+    background-size: 250% 250%;
+  }
+
+  .animate-float {
+    animation: float-y 8s ease-in-out infinite;
+  }
+
+  .animate-float-slow {
+    animation: float-y 14s ease-in-out infinite;
+  }
+
+  .animate-tilt {
+    animation: tilt-wave 12s ease-in-out infinite;
+  }
+
+  .animate-glow {
+    animation: pulse-glow 6s ease-in-out infinite;
+  }
+}

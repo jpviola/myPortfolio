@@ -9,10 +9,10 @@ import { useLanguage } from '@/components/providers/language-provider';
 
 const navItems = [
   { key: 'hero', hash: 'hero' },
-  { key: 'highlights', hash: 'career-highlights' },
-  { key: 'cv', hash: 'cv' },
+  { key: 'highlights', hash: 'panorama' },
+  { key: 'cv', hash: 'education' },
   { key: 'portfolio', hash: 'portfolio' },
-  { key: 'blog', hash: 'blog-preview' },
+  { key: 'blog', hash: 'blog-section' },
   { key: 'contact', hash: 'contact' },
 ] as const;
 
@@ -38,6 +38,7 @@ export function SiteHeader() {
   }, [isMenuOpen]);
 
   const navigation = dictionary.navigation;
+  const brandName = navigation.brand ?? 'Ari Land Studio';
   const links = useMemo(() => navItems.map((item) => ({
     ...item,
     label: navigation[item.key],
@@ -47,7 +48,7 @@ export function SiteHeader() {
     <header className="sticky top-0 z-50 border-b border-border/70 bg-background/90 backdrop-blur supports-[backdrop-filter]:bg-background/60">
       <div className="container flex h-16 items-center justify-between gap-3">
         <Link href="/" className="text-sm font-bold uppercase tracking-[0.4em]">
-          Locale Lab
+          {brandName}
         </Link>
         <nav className="hidden items-center gap-6 text-xs font-semibold uppercase tracking-[0.3em] md:flex">
           {links.map((link) => (
@@ -79,7 +80,7 @@ export function SiteHeader() {
         <div className="fixed inset-0 z-50 bg-background/95 backdrop-blur md:hidden" role="dialog" aria-modal="true" id="mobile-menu">
           <div className="flex h-full flex-col justify-between gap-8 p-6">
             <div className="flex items-center justify-between">
-              <p className="text-sm font-semibold uppercase tracking-[0.3em]">Locale Lab</p>
+              <p className="text-sm font-semibold uppercase tracking-[0.3em]">{brandName}</p>
               <button
                 type="button"
                 className="rounded-full border border-border p-2"

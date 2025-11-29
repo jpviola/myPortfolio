@@ -17,9 +17,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Locale Lab — bilingual blog starter',
+  title: 'Ari Land Studio — landscape hero pages',
   description:
-    'MDX-powered blog and contact workflow that automatically pairs English/Spanish content, adds localized footnotes, and relays contact forms via email.',
+    'Freelance studio crafting animated hero pages with Vite, Express automations, and MDX-powered blogs for bilingual founders.',
 };
 
 export default async function RootLayout({
