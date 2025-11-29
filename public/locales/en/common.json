@@ -1,144 +1,152 @@
 {
   "navigation": {
-    "hero": "Panorama",
-    "highlights": "Frameworks",
-    "cv": "Education",
-    "portfolio": "Portfolio",
-    "blog": "Blog",
+    "hero": "Overview",
+    "highlights": "Focus",
+    "cv": "Formation",
+    "portfolio": "Initiatives",
+    "blog": "Essays",
     "contact": "Contact",
     "themeLabel": "Theme",
     "languageLabel": "Language",
     "themeLight": "Light",
     "themeDark": "Dark",
-    "brand": "Ari Land Studio"
+    "brand": "Juan Pablo Viola"
   },
   "home": {
-    "heroTagline": "Freelance landscape studio",
-    "heroTitle": "Landscape hero pages for indie founders.",
-    "heroBody": "I'm Ari, a designer-developer building wide-screen hero pages, lightweight blogs, and reliable contact flows. Every sprint pairs Vite.js on the front, Express on the back, and color-led storytelling throughout.",
-    "primaryCta": "Start a project",
-    "secondaryCta": "See the journal",
+    "heroTagline": "Professor of Philosophy · University of Buenos Aires",
+    "heroTitle": "Prof. Juan Pablo Viola treats philosophy as a public practice.",
+    "heroBody": "Chair of Phenomenology and Ethics at UBA, Juan Pablo works with universities and civic institutions to translate continental philosophy into actionable teaching, research, and public dialogue.",
+    "primaryCta": "Invite to speak",
+    "secondaryCta": "Read recent essays",
     "heroFrameworks": [
-      { "label": "Frontend", "value": "Vite.js + Tailwind" },
-      { "label": "Backend", "value": "Express API" },
-      { "label": "Blog", "value": "VitePress + MDX" }
+      { "label": "Research", "value": "Phenomenology & ethics of technology" },
+      { "label": "Teaching", "value": "Modern & Latin American thought" },
+      { "label": "Office hours", "value": "Mon–Thu · Faculty 2.14" }
     ],
     "heroStats": [
-      { "label": "Launches", "value": "38" },
-      { "label": "Avg sprint", "value": "10 days" },
-      { "label": "Referrals", "value": "92%" }
+      { "label": "Years teaching", "value": "18" },
+      { "label": "Books", "value": "6 published" },
+      { "label": "Theses mentored", "value": "24" }
     ],
     "heroSceneLabels": [
-      "Animated hero shots",
-      "Express automations",
-      "Simple Vite blog"
+      "Phenomenology of care",
+      "Ethics of technology",
+      "Public humanities labs"
     ],
-    "highlightsTitle": "Studio panorama",
-    "highlightsBody": "Color-coded hero layouts with motion-first storytelling and calm publishing stacks.",
+    "heroPortraitSlot": {
+      "label": "Portrait space",
+      "caption": "Reserve this frame for Juan Pablo's hero photograph."
+    },
+    "heroLogoSlot": {
+      "label": "Logo space",
+      "caption": "Add the faculty crest or personal mark here."
+    },
+    "highlightsTitle": "Teaching & research practice",
+    "highlightsBody": "Programs weaving phenomenology, ethics, and Latin American public life.",
     "highlights": [
       {
-        "badge": "Landscape hero",
-        "title": "Wide-screen layouts",
-        "body": "Edge-to-edge compositions, layered gradients, and scroll-triggered typography tuned for every breakpoint."
+        "badge": "Undergraduate chair",
+        "title": "Phenomenology studio",
+        "body": "Guides 180+ students each term through textual analysis, field diaries, and reflective practice."
       },
       {
-        "badge": "Frameworks",
-        "title": "Vite + Express core",
-        "body": "Vite.js handles motion and states while Express relays contact forms, files, and smart replies."
+        "badge": "Research lab",
+        "title": "Ethics of care & tech",
+        "body": "Coordinates funded studies on AI, memory, and social infrastructure with interdisciplinary teams."
       },
       {
-        "badge": "Publishing",
-        "title": "Simple MDX blog",
-        "body": "Portable MDX content rendered with VitePress so notes stay versioned and easy to extend."
+        "badge": "Public humanities",
+        "title": "Community lecture circuit",
+        "body": "Partners with cultural centers to open philosophy dialogues beyond campus walls."
       }
     ],
-    "cvTitle": "Education & credentials",
-    "cvBody": "Design school roots, lifelong prototyping programs, and mentoring cohorts focused on motion systems.",
-    "cvCta": "Request the CV",
+    "cvTitle": "Academic formation & appointments",
+    "cvBody": "Doctoral research in contemporary philosophy, visiting fellowships in Europe, and two decades of classroom leadership.",
+    "cvCta": "Download the academic CV",
     "educationTimeline": [
       {
-        "year": "2015",
-        "title": "BFA — Visual Communication",
-        "description": "Politecnico di Milano · Specialized in editorial systems and kinetic typography."
+        "year": "2006",
+        "title": "Licentiate in Philosophy — UNC",
+        "description": "Universidad Nacional de Córdoba · Thesis on phenomenology and education."
       },
       {
-        "year": "2018",
-        "title": "Google UX Nanodegree",
-        "description": "Scholarship program centered on research, accessibility, and prototyping in public."
+        "year": "2012",
+        "title": "PhD in Contemporary Philosophy — UBA",
+        "description": "University of Buenos Aires · Dissertation on ethics of memory in Latin America."
       },
       {
-        "year": "2021",
-        "title": "Remote Product Residency",
-        "description": "Led async teams through cinematic hero flows and expressive component libraries."
+        "year": "2019",
+        "title": "Visiting Scholar — Humboldt-Universität",
+        "description": "Berlin residency focused on public humanities and civic imagination."
       }
     ],
-    "portfolioTitle": "Featured case studies",
-    "portfolioBody": "Sprints combining Vite.js, Express, and MDX to ship cinematic, bilingual landing pages.",
-    "portfolioCta": "Review the portfolio deck",
+    "portfolioTitle": "Signature seminars & initiatives",
+    "portfolioBody": "Selected programs co-designed with faculties, ministries of culture, and research collectives.",
+    "portfolioCta": "Review the full syllabus",
     "portfolioProjects": [
       {
-        "title": "Solstice Atlas",
-        "body": "Energy marketplace hero with animated landscape layers and realtime pricing overlays.",
-        "stack": ["Vite.js", "GSAP", "Three.js"]
+        "title": "Phenomenology & public memory",
+        "body": "Graduate studio pairing testimony archives with situated philosophical practice.",
+        "stack": ["Graduate seminar", "Oral history", "Field notebooks"]
       },
       {
-        "title": "Field Notes CRM",
-        "body": "Express API powering proposal automation, contact sync, and secure uploads.",
-        "stack": ["Express", "Postgres", "Zod"]
+        "title": "Ethics of technology studio",
+        "body": "Interfaculty lab where philosophy, engineering, and law draft responsible tech frameworks.",
+        "stack": ["Interfaculty", "Policy clinic", "Workshops"]
       },
       {
-        "title": "Nomad Sound",
-        "body": "MDX + VitePress blog with bilingual routing and annotated playlists.",
-        "stack": ["VitePress", "MDX", "i18n"]
+        "title": "Latin American thought residency",
+        "body": "Traveling residency supporting educators who teach continental and regional philosophy.",
+        "stack": ["Residency", "Mentorship", "Publication"]
       },
       {
-        "title": "Studio Orbit",
-        "body": "Responsive portfolio mirroring Notion briefs with dual-theme art direction.",
-        "stack": ["React", "Notion API", "Tailwind"]
+        "title": "Care theory lab",
+        "body": "Community-based research cohort on health, education, and social infrastructures.",
+        "stack": ["Community research", "Phenomenology", "Civic labs"]
       }
     ],
-    "blogSectionTitle": "Journal notes",
-    "blogSectionBody": "Quick breakdowns on motion systems, async collaboration, and keeping the stack simple.",
-    "blogSectionCta": "Go to the blog",
+    "blogSectionTitle": "Recent essays & field notes",
+    "blogSectionBody": "Short reflections on teaching phenomenology, ethics of technology, and public humanities.",
+    "blogSectionCta": "Visit the notebook",
     "blogPosts": [
       {
-        "title": "Designing landscape hero flows",
-        "excerpt": "Map the horizon, layer gradients, then choreograph reveals that echo sunrise motion.",
-        "readingTime": "5 min read"
-      },
-      {
-        "title": "Pairing Vite + Express for solos",
-        "excerpt": "A lightweight recipe for handling contact flows, localization, and secure uploads.",
+        "title": "Designing seminars that listen",
+        "excerpt": "A method for pairing phenomenological texts with student field diaries.",
         "readingTime": "6 min read"
       },
       {
-        "title": "Keeping MDX blogs friendly",
-        "excerpt": "Structure MDX files, wire VitePress, and let writers focus on story over plumbing.",
-        "readingTime": "4 min read"
+        "title": "Ethics labs for AI policy",
+        "excerpt": "How humanities faculties can ground emerging tech debates in care theory.",
+        "readingTime": "7 min read"
+      },
+      {
+        "title": "Public philosophy in Buenos Aires",
+        "excerpt": "Lessons from convening dialogues with cultural centers across the city.",
+        "readingTime": "5 min read"
       }
     ],
     "contactSection": {
-      "tagline": "Contact",
-      "title": "Tell me about your next horizon",
-      "body": "Send a short brief and I'll reply within 24 hours with a moodboard, scope, and sprint calendar.",
-      "socialHeading": "Follow the studio",
-      "socialDescription": "Process clips, color studies, and release notes land in these channels.",
+      "tagline": "Collaborations",
+      "title": "Invite Prof. Viola to your campus or program",
+      "body": "Describe the lecture, seminar, or advisory role you have in mind. I respond in Spanish or English within two working days.",
+      "socialHeading": "Follow ongoing research",
+      "socialDescription": "Lecture releases, publication news, and residency updates live on these channels.",
       "socialLinks": [
-        { "id": "linkedin", "label": "LinkedIn", "handle": "/in/ari-land", "href": "https://www.linkedin.com/in/ari-land" },
-        { "id": "github", "label": "GitHub", "handle": "@arialand", "href": "https://github.com/arialand" },
-        { "id": "facebook", "label": "Facebook", "handle": "@arialand.studio", "href": "https://www.facebook.com/arialand.studio" },
-        { "id": "x", "label": "X", "handle": "@ari_land", "href": "https://x.com/ari_land" }
+        { "id": "linkedin", "label": "LinkedIn", "handle": "/in/juanpabloviola", "href": "https://www.linkedin.com/in/juanpabloviola" },
+        { "id": "scholar", "label": "Google Scholar", "handle": "scholar/viola", "href": "https://scholar.google.com/citations?user=juanpabloviola" },
+        { "id": "researchgate", "label": "ResearchGate", "handle": "/profile/Juan-Pablo-Viola", "href": "https://www.researchgate.net/profile/Juan-Pablo-Viola" },
+        { "id": "x", "label": "X", "handle": "@profviola", "href": "https://x.com/profviola" }
       ]
     }
   },
   "blog": {
-    "title": "Field notes",
-    "description": "Every article supports English & Spanish. Missing translations fall back gracefully with a friendly badge.",
+    "title": "Research notebook",
+    "description": "Essays and working notes on phenomenology, ethics of technology, and public humanities.",
     "translationsLabel": "Available in",
-    "fallbackLabel": "Showing the {{language}} version while we translate this post.",
+    "fallbackLabel": "Showing the {{language}} version while we complete this translation.",
     "fallbackChip": "{{language}} version",
     "readPost": "Read article",
-    "missingPosts": "No posts available yet."
+    "missingPosts": "No essays available yet."
   },
   "blogPost": {
     "published": "Published",
@@ -147,17 +155,17 @@
     "translationBadge": "Translation"
   },
   "footnotes": {
-    "heading": "Footnotes"
+    "heading": "Endnotes"
   },
   "contact": {
     "title": "Contact",
-    "description": "Share your idea in English or Spanish. I validate every field, localize responses, and relay via a secure Express + Nodemailer stack.",
+    "description": "Share details about the collaboration or event. I respond personally in Spanish or English.",
     "nameLabel": "Full name",
     "emailLabel": "Email",
     "messageLabel": "Message",
     "submitCta": "Send message",
     "successTitle": "Message sent",
-    "successBody": "Thanks for reaching out. I'll reply soon.",
+    "successBody": "Thank you. I'll reply within two business days.",
     "errors": {
       "nameRequired": "Please add your name.",
       "nameLength": "Name should be at least 2 characters.",
@@ -168,20 +176,20 @@
     }
   },
   "footer": {
-    "brandName": "Ari Land Studio",
-    "contactHeading": "Let's build together",
-    "contactDescription": "Email or call to talk about landscape hero pages and bilingual content systems.",
+    "brandName": "Juan Pablo Viola",
+    "contactHeading": "Academic collaborations",
+    "contactDescription": "Invite Prof. Viola to lecture, advise, or co-design humanities programs.",
     "emailLabel": "Email",
-    "emailValue": "studio@ariland.com",
-    "phoneLabel": "Phone",
-    "phoneValue": "+34 611 000 452",
-    "socialHeading": "Social",
-    "socialDescription": "Follow process clips, palettes, and live sprints.",
+    "emailValue": "agenda@juanpabloviola.com",
+    "phoneLabel": "Office",
+    "phoneValue": "+54 11 4555 9821",
+    "socialHeading": "Networks",
+    "socialDescription": "Research updates and public events.",
     "socialLinks": [
-      { "label": "LinkedIn", "value": "/in/ari-land" },
-      { "label": "GitHub", "value": "@arialand" },
-      { "label": "Facebook", "value": "@arialand.studio" },
-      { "label": "X", "value": "@ari_land" }
+      { "label": "LinkedIn", "value": "/in/juanpabloviola" },
+      { "label": "Google Scholar", "value": "scholar.google.com/viola" },
+      { "label": "ResearchGate", "value": "/profile/Juan-Pablo-Viola" },
+      { "label": "X", "value": "@profviola" }
     ],
     "rights": "All rights reserved."
   },

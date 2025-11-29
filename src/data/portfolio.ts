@@ -4,31 +4,31 @@ export type LocalizedString = Record<Locale, string>;
 
 export const portfolioCategories = [
   {
-    id: 'platform',
+    id: 'curriculum',
     label: {
-      en: 'Platform systems',
-      es: 'Sistemas de plataforma',
+      en: 'Curriculum design',
+      es: 'Diseño curricular',
     },
   },
   {
-    id: 'researchOps',
+    id: 'research',
     label: {
-      en: 'Research operations',
-      es: 'Operaciones de investigación',
+      en: 'Research labs',
+      es: 'Laboratorios de investigación',
     },
   },
   {
-    id: 'goToMarket',
+    id: 'publicPrograms',
     label: {
-      en: 'Go-to-market',
-      es: 'Go-to-market',
+      en: 'Public programs',
+      es: 'Programas públicos',
     },
   },
   {
-    id: 'enablement',
+    id: 'mentoring',
     label: {
-      en: 'Enablement',
-      es: 'Habilitación',
+      en: 'Mentoring & advising',
+      es: 'Mentorías y acompañamiento',
     },
   },
 ] as const;
@@ -75,284 +75,276 @@ export interface PortfolioProject {
 
 export const portfolioProjects: PortfolioProject[] = [
   {
-    id: 'atlas-hub',
+    id: 'phenomenology-commons',
     title: {
-      en: 'Atlas research hub',
-      es: 'Centro de investigación Atlas',
+      en: 'Phenomenology Commons',
+      es: 'Comunidad Fenomenológica',
     },
     summary: {
-      en: 'Unified bilingual insight library with programmable footnotes.',
-      es: 'Biblioteca bilingüe de insights con notas al pie programables.',
+      en: 'Graduate seminar linking oral histories with phenomenological method.',
+      es: 'Seminario de posgrado que vincula historias orales con método fenomenológico.',
     },
     description: {
-      en: 'Rebuilt the company research hub so product, support, and leadership could query findings in English or Spanish. The experience pairs metadata, recordings, and footnotes to explain regional nuance without duplicating the entire write-up.',
-      es: 'Reconstruimos el hub de investigación para que producto, soporte y liderazgo consultaran hallazgos en inglés o español. La experiencia combina metadatos, grabaciones y notas al pie para explicar matices regionales sin duplicar el informe completo.',
+      en: 'Co-created with the Institute of Philosophy at UBA to help educators pair oral history archives with rigorous phenomenological description. Fellows document fieldwork, annotate testimonies, and publish bilingual briefs for partner institutions.',
+      es: 'Co-creado con el Instituto de Filosofía de la UBA para ayudar a docentes a combinar archivos de historia oral con descripción fenomenológica rigurosa. Los becarios documentan trabajo de campo, anotan testimonios y publican informes bilingües para las instituciones aliadas.',
     },
     media: {
       src: '/window.svg',
       alt: {
-        en: 'Screenshot of a bilingual research dashboard',
-        es: 'Captura de un panel de investigación bilingüe',
+        en: 'Students collaborating around archival material',
+        es: 'Estudiantes colaborando alrededor de material de archivo',
       },
     },
-    categories: ['platform', 'researchOps'],
-    stack: ['Next.js', 'Supabase', 'MDX', 'Tailwind'],
+    categories: ['curriculum', 'research'],
+    stack: ['Graduate seminar', 'Oral history', 'Field notebooks'],
     highlights: [
       {
         title: {
-          en: 'Context switching drops',
-          es: 'Menos cambios de contexto',
+          en: 'Shared field diaries',
+          es: 'Diarios de campo compartidos',
         },
         body: {
-          en: 'Analysts tag each clip once and share snippets that switch languages inline, so stakeholders no longer wait for two recap decks.',
-          es: 'Los analistas etiquetan cada clip una sola vez y comparten fragmentos que cambian de idioma en línea, evitando dos versiones del informe.',
+          en: 'Students pair phenomenological description with ethnographic prompts so archives stay grounded in lived experience.',
+          es: 'Los estudiantes combinan descripción fenomenológica con consignas etnográficas para mantener los archivos anclados a la experiencia vivida.',
         },
-        footnoteId: 'snippets',
+        footnoteId: 'field-diaries',
       },
       {
         title: {
-          en: 'Traceable consent',
-          es: 'Consentimiento rastreable',
+          en: 'Archive stewardship',
+          es: 'Custodia de archivos',
         },
         body: {
-          en: 'Footnotes capture when a quote is anonymized versus masked entirely, which keeps compliance reviewers in the same record.',
-          es: 'Las notas al pie registran cuándo una cita es anonimizada frente a eliminada por completo, manteniendo a cumplimiento en el mismo registro.',
+          en: 'Each cohort processes delicate testimonies, tags consent levels, and shares guidance with museum partners.',
+          es: 'Cada cohorte procesa testimonios sensibles, etiqueta niveles de consentimiento y comparte lineamientos con museos aliados.',
         },
-        footnoteId: 'consent',
       },
     ],
     metrics: [
       {
         label: {
-          en: 'Time to publish',
-          es: 'Tiempo para publicar',
+          en: 'Fellows per cohort',
+          es: 'Becarios por cohorte',
         },
         value: {
-          en: '↓ 38% per study',
-          es: '↓ 38% por estudio',
+          en: '28 researchers',
+          es: '28 investigadores',
         },
       },
       {
         label: {
-          en: 'Regions supported',
-          es: 'Regiones cubiertas',
+          en: 'Annotated testimonies',
+          es: 'Testimonios anotados',
         },
         value: {
-          en: '5 simultaneous launches',
-          es: '5 lanzamientos simultáneos',
+          en: '320 records',
+          es: '320 registros',
         },
       },
     ],
     links: [
       {
-        href: 'https://example.com/atlas-case-study',
+        href: 'https://example.com/phenomenology-commons',
         label: {
-          en: 'Case study deck',
-          es: 'Presentación del caso',
+          en: 'Syllabus overview',
+          es: 'Resumen del programa',
         },
       },
       {
-        href: 'https://example.com/atlas-demo',
+        href: 'https://example.com/phenomenology-commons-report',
         label: {
-          en: 'Live prototype',
-          es: 'Prototipo en vivo',
+          en: 'Impact report',
+          es: 'Informe de impacto',
         },
       },
     ],
     footnotes: [
       {
-        id: 'snippets',
+        id: 'field-diaries',
         copy: {
-          en: 'Clips are stored once and rendered with locale-aware captions so annotations stay in sync.',
-          es: 'Los clips se guardan una sola vez y se muestran con subtítulos según el idioma para mantener sincronizadas las anotaciones.',
-        },
-      },
-      {
-        id: 'consent',
-        copy: {
-          en: 'Consent logs travel with each note, which means auditors can review translations without exporting data.',
-          es: 'Los registros de consentimiento viajan con cada nota, permitiendo auditorías de traducciones sin exportar datos.',
+          en: 'Participants keep bilingual diaries that connect phenomenological reductions with contextual notes.',
+          es: 'Los participantes mantienen diarios bilingües que conectan reducciones fenomenológicas con notas contextuales.',
         },
       },
     ],
   },
   {
-    id: 'dual-track-launch',
+    id: 'ethics-technology-studio',
     title: {
-      en: 'Dual-track launch desk',
-      es: 'Mesa de lanzamiento dual',
+      en: 'Ethics of Technology Studio',
+      es: 'Estudio de Ética Tecnológica',
     },
     summary: {
-      en: 'Coordinated playbooks that pair go-to-market experiments in both languages.',
-      es: 'Playbooks coordinados que emparejan experimentos go-to-market en ambos idiomas.',
+      en: 'Interfaculty lab bridging engineering, law, and philosophy to draft responsible AI policies.',
+      es: 'Laboratorio interfacultades que une ingeniería, derecho y filosofía para diseñar políticas responsables de IA.',
     },
     description: {
-      en: 'Stood up a lightweight launch desk that let marketing, product, and support rehearse weekly updates in English and Spanish simultaneously. Every card inside the desk links to proof, localized positioning, and the canonical message for frontline teams.',
-      es: 'Montamos una mesa de lanzamiento ligera que permitió a marketing, producto y soporte ensayar actualizaciones semanales en inglés y español al mismo tiempo. Cada tarjeta enlaza a evidencia, posicionamiento localizado y el mensaje oficial para los equipos de primera línea.',
+      en: 'Weekly studio that pairs engineering prototypes with philosophical critique and legal review. Teams co-author ethical guardrails, publication guidelines, and response plans for public institutions.',
+      es: 'Estudio semanal que combina prototipos de ingeniería con crítica filosófica y revisión legal. Los equipos co-escriben barandillas éticas, guías de publicación y planes de respuesta para instituciones públicas.',
     },
     media: {
       src: '/globe.svg',
       alt: {
-        en: 'Illustration of synchronized launch activities',
-        es: 'Ilustración de actividades de lanzamiento sincronizadas',
+        en: 'Illustration of interdisciplinary seminar',
+        es: 'Ilustración de seminario interdisciplinario',
       },
     },
-    categories: ['goToMarket', 'enablement'],
-    stack: ['Linear', 'Notion API', 'Next.js'],
+    categories: ['publicPrograms', 'curriculum'],
+    stack: ['Policy clinic', 'Workshops', 'Faculty co-teaching'],
     highlights: [
       {
         title: {
-          en: 'Shared cadence',
-          es: 'Cadencia compartida',
+          en: 'Policy sprints',
+          es: 'Sprints de política',
         },
         body: {
-          en: 'The desk locks milestones to dual-language scripts so regional leads can adapt tone without drifting from the launch map.',
-          es: 'La mesa vincula hitos a guiones bilingües para que los líderes regionales adapten el tono sin apartarse del plan.',
+          en: 'Mixed teams prototype ethical guardrails alongside engineering releases and legal reviews.',
+          es: 'Equipos mixtos prototipan barandillas éticas junto a los lanzamientos de ingeniería y las revisiones legales.',
         },
+        footnoteId: 'policy',
       },
       {
         title: {
-          en: 'Measured pivots',
-          es: 'Cambios medidos',
+          en: 'Community juries',
+          es: 'Jurados comunitarios',
         },
         body: {
-          en: 'Every experiment card keeps the original hypothesis plus annotations for each market, which preserves context after retros.',
-          es: 'Cada tarjeta de experimento conserva la hipótesis original y anotaciones por mercado, preservando el contexto tras las retros.',
+          en: 'Residents and students review case studies to keep institutional decisions accountable to lived experience.',
+          es: 'Vecinos y estudiantes revisan casos para mantener las decisiones institucionales alineadas con la experiencia vivida.',
         },
-        footnoteId: 'experiments',
       },
     ],
     metrics: [
       {
         label: {
-          en: 'Asset reuse',
-          es: 'Reutilización de activos',
+          en: 'Partner faculties',
+          es: 'Facultades aliadas',
         },
         value: {
-          en: '72% of collateral shared',
-          es: '72% del material reutilizado',
+          en: '3 schools',
+          es: '3 facultades',
         },
       },
       {
         label: {
-          en: 'Launch tempo',
-          es: 'Ritmo de lanzamientos',
+          en: 'Policy briefs',
+          es: 'Documentos de política',
         },
         value: {
-          en: 'Weekly sync → async briefs',
-          es: 'Sync semanal → briefs asíncronos',
+          en: '12 published',
+          es: '12 publicados',
         },
       },
     ],
     links: [
       {
-        href: 'https://example.com/dual-track-guide',
+        href: 'https://example.com/ethics-studio-guide',
         label: {
-          en: 'Playbook template',
-          es: 'Plantilla del playbook',
+          en: 'Studio guide',
+          es: 'Guía del estudio',
         },
       },
     ],
     footnotes: [
       {
-        id: 'experiments',
+        id: 'policy',
         copy: {
-          en: 'When we archived the launch, annotations exported into the same deck so execs could see how copy evolved per region.',
-          es: 'Al archivar el lanzamiento, las anotaciones se exportaron al mismo deck para que dirección viera cómo evolucionaba el copy por región.',
+          en: 'Each sprint ends with a bilingual rubric that product teams reuse during procurement reviews.',
+          es: 'Cada sprint termina con una rúbrica bilingüe que los equipos de producto reutilizan en las revisiones de compras.',
         },
       },
     ],
   },
   {
-    id: 'signals-console',
+    id: 'care-theory-lab',
     title: {
-      en: 'Signals console',
-      es: 'Consola de señales',
+      en: 'Care Theory Lab',
+      es: 'Laboratorio de Teoría del Cuidado',
     },
     summary: {
-      en: 'Telemetry dashboard aligning platform health, research notes, and support queues.',
-      es: 'Panel que alinea salud de la plataforma, notas de investigación y colas de soporte.',
+      en: 'Community-based research residency focused on health, education, and mutual aid infrastructures.',
+      es: 'Residencia de investigación comunitaria enfocada en salud, educación e infraestructuras de cuidado.',
     },
     description: {
-      en: 'Connected incident reviews, churn interviews, and product analytics into a single bilingual console. The dashboard exposes the narrative and lets teams open a modal to read the research footnotes that justify each spike.',
-      es: 'Conectamos revisiones de incidentes, entrevistas de churn y analítica de producto en una sola consola bilingüe. El panel expone la narrativa y permite abrir un modal para leer las notas de investigación que justifican cada pico.',
+      en: 'Residency program that embeds philosophy students inside clinics and schools to co-design practices of care. Participants publish joint findings with community partners and mentor younger cohorts.',
+      es: 'Programa de residencia que inserta a estudiantes de filosofía en clínicas y escuelas para co-diseñar prácticas de cuidado. Los participantes publican hallazgos junto a las organizaciones y acompañan a cohortes más jóvenes.',
     },
     media: {
       src: '/file.svg',
       alt: {
-        en: 'Charts showing product health and notes',
-        es: 'Gráficas de salud del producto y notas',
+        en: 'Community workshop illustration',
+        es: 'Ilustración de taller comunitario',
       },
     },
-    categories: ['platform', 'enablement'],
-    stack: ['Next.js', 'DatoCMS', 'Vercel Edge'],
+    categories: ['research', 'mentoring'],
+    stack: ['Community research', 'Residency', 'Mentorship'],
     highlights: [
       {
         title: {
-          en: 'Live annotations',
-          es: 'Anotaciones en vivo',
+          en: 'Resident circles',
+          es: 'Círculos de residentes',
         },
         body: {
-          en: 'Every chart point links back to the interview or log line that triggered it, so engineers never lose the bilingual source.',
-          es: 'Cada punto en la gráfica enlaza con la entrevista o log que lo originó, evitando perder la fuente bilingüe.',
+          en: 'Weekly salons mix philosophical readings with story-sharing from nurses, teachers, and caregivers.',
+          es: 'Salones semanales mezclan lecturas filosóficas con relatos de enfermeras, docentes y cuidadoras.',
         },
-        footnoteId: 'annotations',
+        footnoteId: 'residents',
       },
       {
         title: {
-          en: 'Shared filters',
-          es: 'Filtros compartidos',
+          en: 'Care metrics',
+          es: 'Métricas de cuidado',
         },
         body: {
-          en: 'Product managers slice the same view mobile leads use, which keeps priorities aligned across regions.',
-          es: 'Los PM utilizan la misma vista que los líderes móviles, manteniendo prioridades alineadas entre regiones.',
+          en: 'Teams build qualitative indicators that complement hospital dashboards and municipal reports.',
+          es: 'Los equipos construyen indicadores cualitativos que complementan tableros hospitalarios e informes municipales.',
         },
       },
     ],
     metrics: [
       {
         label: {
-          en: 'Incident review time',
-          es: 'Tiempo de revisión de incidentes',
+          en: 'Community partners',
+          es: 'Aliados comunitarios',
         },
         value: {
-          en: '↓ 45 minutes per call',
-          es: '↓ 45 minutos por llamada',
+          en: '9 organizations',
+          es: '9 organizaciones',
         },
       },
       {
         label: {
-          en: 'Shared dashboards',
-          es: 'Dashboards compartidos',
+          en: 'Student residencies',
+          es: 'Residencias estudiantiles',
         },
         value: {
-          en: '12 squads subscribe',
-          es: '12 escuadras suscritas',
+          en: '14 fellows',
+          es: '14 becarios',
         },
       },
     ],
     links: [
       {
-        href: 'https://example.com/signals-console',
+        href: 'https://example.com/care-theory-lab',
         label: {
-          en: 'Technical spec',
-          es: 'Especificación técnica',
+          en: 'Residency prospectus',
+          es: 'Prospecto de la residencia',
         },
       },
       {
-        href: 'https://example.com/signals-video',
+        href: 'https://example.com/care-theory-lab-journal',
         label: {
-          en: 'Walkthrough video',
-          es: 'Video de recorrido',
+          en: 'Field journal',
+          es: 'Cuaderno de campo',
         },
       },
     ],
     footnotes: [
       {
-        id: 'annotations',
+        id: 'residents',
         copy: {
-          en: 'Annotations inherit the viewer’s locale so the same link renders English or Spanish context automatically.',
-          es: 'Las anotaciones heredan el idioma del espectador, mostrando contexto en inglés o español automáticamente.',
+          en: 'Residents pair weekly philosophical salons with service hours inside partnering clinics.',
+          es: 'Los residentes combinan salones filosóficos semanales con horas de servicio en las clínicas aliadas.',
         },
       },
     ],
