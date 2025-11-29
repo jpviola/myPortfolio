@@ -11,6 +11,8 @@ export default async function HomePage() {
   const heroFrameworks = home.heroFrameworks ?? [];
   const heroStats = home.heroStats ?? [];
   const heroSceneLabels = home.heroSceneLabels ?? [];
+  const heroPortraitSlot = home.heroPortraitSlot;
+  const heroLogoSlot = home.heroLogoSlot;
   const highlights = home.highlights ?? [];
   const educationTimeline = home.educationTimeline ?? [];
   const portfolioProjects = home.portfolioProjects ?? [];
@@ -67,7 +69,7 @@ export default async function HomePage() {
                 ))}
               </dl>
             </div>
-            <HeroLandscapeScene labels={heroSceneLabels} />
+            <HeroProfilePanel portrait={heroPortraitSlot} logo={heroLogoSlot} focusAreas={heroSceneLabels} />
           </div>
         </div>
       </section>
@@ -250,48 +252,50 @@ export default async function HomePage() {
   );
 }
 
-function HeroLandscapeScene({ labels }: { labels: string[]; }) {
+function HeroProfilePanel({
+  portrait,
+  logo,
+  focusAreas,
+}: {
+  portrait?: { label?: string; caption?: string; };
+  logo?: { label?: string; caption?: string; };
+  focusAreas: string[];
+}) {
+  const portraitLabel = portrait?.label ?? 'Portrait';
+  const portraitCaption = portrait?.caption ?? 'Reserve space for the hero image.';
+  const logoLabel = logo?.label ?? 'Logo';
+  const logoCaption = logo?.caption ?? 'Add the faculty crest or monogram.';
+
   return (
-    <div className="relative isolate flex min-h-[420px] flex-col justify-end">
-      <div className="pointer-events-none absolute inset-0 rounded-[32px] bg-[radial-gradient(circle_at_top,_rgba(59,130,246,0.45),_transparent_55%)]" aria-hidden />
-      <div className="relative rounded-[32px] border border-white/20 bg-white/5 p-6 shadow-2xl backdrop-blur">
-        <div className="flex items-center justify-between text-xs uppercase tracking-[0.35em] text-white/70">
-          <span>Sunset sprint</span>
-          <span>Landscape mode</span>
+    <div className="relative isolate flex flex-col gap-6">
+      <div className="rounded-[32px] border border-white/20 bg-white/5 p-6 shadow-2xl backdrop-blur">
+        <div className="relative flex aspect-[3/4] w-full items-center justify-center rounded-[28px] border-2 border-dashed border-white/35 bg-gradient-to-b from-white/15 via-transparent to-transparent px-6 text-center">
+          <div className="space-y-3">
+            <p className="text-xs font-semibold uppercase tracking-[0.4em] text-white/70">{portraitLabel}</p>
+            <p className="text-sm text-white/80">{portraitCaption}</p>
+          </div>
+          <span className="pointer-events-none absolute inset-0 rounded-[28px] bg-[radial-gradient(circle_at_top,_rgba(255,255,255,0.2),_transparent_65%)]" aria-hidden />
         </div>
-        <div className="mt-6 flex h-48 items-end gap-3">
-          <div className="flex-1 rounded-t-[32px] bg-gradient-to-t from-slate-900 to-slate-900/10 p-4 shadow-inner shadow-black/40">
-            <p className="text-sm font-semibold text-white">Vite hero</p>
-            <p className="text-xs text-white/60">Motion</p>
+        <div className="mt-6 flex items-center gap-4 rounded-2xl border-2 border-dashed border-white/35 bg-white/5 p-4 text-left">
+          <div className="flex size-16 items-center justify-center rounded-full border border-white/40 text-[10px] font-semibold uppercase tracking-[0.4em] text-white/70">
+            {logoLabel}
           </div>
-          <div className="flex-1 rounded-t-[32px] bg-gradient-to-t from-indigo-900 to-indigo-500/40 p-4">
-            <p className="text-sm font-semibold text-white">Express API</p>
-            <p className="text-xs text-white/60">Automation</p>
-          </div>
-          <div className="flex basis-1/3 flex-col gap-3">
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-              Blog kit
-            </div>
-            <div className="rounded-2xl border border-white/20 bg-white/10 p-3 text-xs font-semibold uppercase tracking-[0.3em] text-white/70">
-              MDX
-            </div>
-          </div>
+          <p className="text-sm text-white/80">{logoCaption}</p>
         </div>
-        {labels.length > 0 && (
-          <div className="mt-6 grid gap-3 sm:grid-cols-3">
-            {labels.map((label, index) => (
-              <div
-                key={label}
-                className="rounded-2xl border border-white/20 bg-white/10 p-4 text-sm font-semibold text-white shadow-lg animate-float"
-                style={{ animationDelay: `${index * 0.6}s` }}
-              >
-                {label}
-              </div>
-            ))}
-          </div>
-        )}
       </div>
-      <span className="pointer-events-none absolute -top-6 right-8 h-24 w-24 rounded-full bg-gradient-to-tr from-amber-200/80 to-rose-300/80 blur-xl" aria-hidden />
+      {focusAreas.length > 0 && (
+        <div className="grid gap-3 sm:grid-cols-2">
+          {focusAreas.map((area, index) => (
+            <div
+              key={area}
+              className="rounded-2xl border border-white/20 bg-white/5 p-4 text-sm font-semibold text-white shadow-lg animate-float"
+              style={{ animationDelay: `${index * 0.6}s` }}
+            >
+              {area}
+            </div>
+          ))}
+        </div>
+      )}
     </div>
   );
 }
@@ -311,6 +315,38 @@ function SocialIcon({ id }: { id: string; }) {
             fillRule="evenodd"
             d="M12 2a10 10 0 0 0-3.2 19.49c.5.1.68-.22.68-.48v-1.64c-2.78.62-3.37-1.34-3.37-1.34-.46-1.17-1.12-1.48-1.12-1.48-.92-.64.07-.63.07-.63 1.02.08 1.55 1.07 1.55 1.07.9 1.58 2.36 1.12 2.94.85a2.3 2.3 0 0 1 .68-1.46c-2.22-.26-4.56-1.14-4.56-5.08 0-1.12.39-2.04 1.03-2.76a3.5 3.5 0 0 1 .1-2.72s.84-.27 2.75 1.05a9.5 9.5 0 0 1 5 0c1.9-1.32 2.74-1.05 2.74-1.05.37.83.4 1.82.1 2.72a3.7 3.7 0 0 1 1.02 2.76c0 3.95-2.34 4.81-4.58 5.06.36.32.69.94.69 1.9v2.82c0 .27.18.59.69.48A10 10 0 0 0 12 2Z"
           />
+        </svg>
+      );
+    case 'scholar':
+      return (
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M12 3l8.5 5.5L12 14 3.5 8.5 12 3z" />
+          <path d="M6 14v5a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-5" />
+        </svg>
+      );
+    case 'researchgate':
+      return (
+        <svg
+          viewBox="0 0 24 24"
+          aria-hidden
+          className="h-5 w-5"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="1.5"
+          strokeLinecap="round"
+          strokeLinejoin="round"
+        >
+          <path d="M5 4h6.5a4 4 0 1 1 0 8H9v8H5z" />
+          <path d="M13.5 12c2 0 3.5 1.2 3.5 3.6S15.4 20 12.8 20" />
         </svg>
       );
     case 'facebook':
